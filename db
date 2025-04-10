@@ -4,11 +4,28 @@ gym/
 │  ├─ layout.tsx
 │  └─ page.tsx
 ├─ components/
-│  ├─ tabs/
-│  │  ├─ explore-tab.tsx
-│  │  ├─ home-tab.tsx
-│  │  ├─ profile-tab.tsx
-│  │  └─ progress-tab.tsx
+│  ├─ home/
+│  ├─ progress/
+│  ├─ explore/
+│  ├─ profile/
+├─ hooks/
+│  └─ use-toast.ts
+├─ lib/
+│  └─ utils.ts
+├─ .eslintrc.json
+├─ .gitignore
+├─ components.json
+├─ db
+├─ next-env.d.ts
+├─ next.config.js
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.js
+├─ tailwind.config.ts
+└─ tsconfig.json
+
+
+
 │  └─ ui/
 │     ├─ accordion.tsx
 │     ├─ alert-dialog.tsx
@@ -57,18 +74,3 @@ gym/
 │     ├─ toggle-group.tsx
 │     ├─ toggle.tsx
 │     └─ tooltip.tsx
-├─ hooks/
-│  └─ use-toast.ts
-├─ lib/
-│  └─ utils.ts
-├─ .eslintrc.json
-├─ .gitignore
-├─ components.json
-├─ db
-├─ next-env.d.ts
-├─ next.config.js
-├─ package-lock.json
-├─ package.json
-├─ postcss.config.js
-├─ tailwind.config.ts
-└─ tsconfig.json

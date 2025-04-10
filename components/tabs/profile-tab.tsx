@@ -18,8 +18,8 @@ export default function ProfileTab() {
         <div className="h-24 w-24 rounded-full bg-accent flex items-center justify-center mb-4">
           <span className="text-2xl font-bold">A</span>
         </div>
-        <h2 className="text-xl font-semibold">Alex Johnson</h2>
-        <p className="text-muted-foreground">Fitness Enthusiast</p>
+        <h2 className="text-xl font-semibold">Rahman</h2>
+        <p className="text-muted-foreground">Gym Member</p>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
@@ -29,7 +29,7 @@ export default function ProfileTab() {
         </Card>
         <Card className="p-4 text-center">
           <p className="text-2xl font-bold">8.5k</p>
-          <p className="text-sm text-muted-foreground">Calories</p>
+          <p className="text-sm text-muted-foreground">Calories Burnt</p>
         </Card>
         <Card className="p-4 text-center">
           <p className="text-2xl font-bold">12</p>

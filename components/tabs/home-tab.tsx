@@ -2,18 +2,29 @@
 
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useToast } from "@/hooks/use-toast";
 import { Dumbbell, Target, Flame } from "lucide-react";
 
 export default function HomeTab() {
+  const { toast } = useToast();
+
+  const handleStreakClick = () => {
+    toast({
+      title: "🔥 Weekly Streak",
+      description: "You’ve worked out 5 days this week. Amazing consistency!",
+      duration: 1500,
+    });
+  };
+
   return (
     <div className="space-y-6 py-8">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Welcome back, Nasghul!</h1>
+        <h1 className="text-3xl font-bold">Welcome back, Rahman!</h1>
         <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center">
           <Dumbbell className="h-6 w-6 text-primary-foreground" />
         </div>
       </div>
-
+      
       <Card className="p-6">
         <h2 className="text-xl font-semibold mb-4">Todays Goals</h2>
         <div className="space-y-4">
@@ -48,7 +59,10 @@ export default function HomeTab() {
           <p className="text-sm text-accent-foreground">Today, 6:00 PM</p>
         </Card>
 
-        <Card className="p-6">
+        <Card
+          onClick={handleStreakClick}
+          className="p-6 cursor-pointer hover:bg-muted transition "
+        >
           <h3 className="font-semibold mb-2">Weekly Streak</h3>
           <p className="text-2xl font-bold">5 Days</p>
           <p className="text-sm text-muted-foreground">Keep it up!</p>
