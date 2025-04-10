@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-6 py-8">
+    <div className="space-y-6 pt-14"> 
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Welcome back, Champ!</h1>
         <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center">
