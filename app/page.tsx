@@ -1,53 +1,73 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import HomeTab from "@/components/tabs/home-tab";
-import ProgressTab from "@/components/tabs/progress-tab";
-import ExploreTab from "@/components/tabs/explore-tab";
-import ProfileTab from "@/components/tabs/profile-tab";
-import { Home, ActivitySquare, Compass, User } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Dumbbell, Target, Flame } from "lucide-react";
+import { useToast } from "@/hooks/useToast";
 
-export default function App() {
-  const [activeTab, setActiveTab] = useState("home");
+export default function Home() {
+  const { toast } = useToast();
 
-  const tabs = [
-    { id: "home", icon: Home, component: HomeTab },
-    { id: "progress", icon: ActivitySquare, component: ProgressTab },
-    { id: "explore", icon: Compass, component: ExploreTab },
-    { id: "profile", icon: User, component: ProfileTab },
-  ];
-
-  const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component || HomeTab;
+  const handleStreakClick = () => {
+    toast({
+      title: "🔥 Weekly Streak",
+      description: "You’ve worked out 5 days this week. Amazing consistency!",
+      duration: 2500,
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="container mx-auto px-4 pb-20">
-        <ActiveComponent />
-      </main>
-      
-      <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-around">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex flex-col items-center py-3 px-5 transition-colors ${
-                    activeTab === tab.id
-                      ? "text-secondary"
-                      : "text-primary hover:text-muted-foreground"
-                  }`}
-                >
-                  <Icon className="h-6 w-6" />
-                  <span className="text-xs mt-1 capitalize">{tab.id}</span>
-                </button>
-              );
-            })}
+    <div className="space-y-6 py-8">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Welcome back, Champ!</h1>
+        <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center">
+          <Dumbbell className="h-6 w-6 text-primary-foreground" />
+        </div>
+      </div>
+
+      <Card className="p-6">
+        <h2 className="text-xl font-semibold mb-4">Todays Goals</h2>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                <span>Workout Minutes</span>
+              </div>
+              <span className="text-sm">45/60 min</span>
+            </div>
+            <Progress value={75} className="h-2" />
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Flame className="h-5 w-5 text-primary" />
+                <span>Calories Burned</span>
+              </div>
+              <span className="text-sm">320/500 kcal</span>
+            </div>
+            <Progress value={64} className="h-2" />
           </div>
         </div>
-      </nav>
+      </Card>
+
+      <div className="grid grid-cols-2 gap-4">
+        <Card className="p-6">
+          <h3 className="font-semibold mb-2">Next Workout</h3>
+          <p className="text-muted-foreground">Upper Body</p>
+          <p className="text-sm text-accent-foreground">Today, 6:00 PM</p>
+        </Card>
+
+        <Card
+          onClick={handleStreakClick}
+          className="p-6 cursor-pointer hover:bg-muted transition"
+        >
+          <h3 className="font-semibold mb-2">Weekly Streak</h3>
+          <p className="text-2xl font-bold">5 Days</p>
+          <p className="text-sm text-muted-foreground">Keep it up!</p>
+        </Card>
+      </div>
     </div>
   );
 }

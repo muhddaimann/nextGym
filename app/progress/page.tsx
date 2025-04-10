@@ -13,7 +13,7 @@ const data = [
   { name: "Sun", weight: 177 },
 ];
 
-export default function ProgressTab() {
+export default function Progress() {
   return (
     <div className="space-y-6 py-8">
       <h1 className="text-3xl font-bold">Your Progress</h1>

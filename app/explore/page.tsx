@@ -26,7 +26,7 @@ const workouts = [
   }
 ];
 
-export default function ExploreTab() {
+export default function Explore() {
   return (
     <div className="space-y-6 py-8">
       <h1 className="text-3xl font-bold">Explore Workouts</h1>

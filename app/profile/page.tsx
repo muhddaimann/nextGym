@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Settings, Award, Calendar, BarChart } from "lucide-react";
 
-export default function ProfileTab() {
+export default function Profile() {
   return (
     <div className="space-y-6 py-8">
       <div className="flex items-center justify-between">
